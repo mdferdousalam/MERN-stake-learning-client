@@ -36,7 +36,7 @@ const Header = () => {
                             FAQ
                         </NavLink>
                     </li>
-                    <li>
+                    <li className='mr-2'>
                         <NavLink to="/blog">
                             {({ isActive }) => (
                                 <span
@@ -49,9 +49,15 @@ const Header = () => {
                             )}
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink>
+                    <li className='mr-2'>
+                        <NavLink to='/login'>
+                            Login
 
+                        </NavLink>
+                    </li>
+                    <li className='mr-2'>
+                        <NavLink to='/signup'>
+                            Sign Up
 
                         </NavLink>
                     </li>
