@@ -54,8 +54,8 @@ const SignUp = () => {
                 {errors.Name?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">Name is required</p>}
                 <input className='mt-6 text-indigo-600 border mx-auto border-indigo-600' type="email" placeholder="Email" {...register("Email", { required: true })} />
                 {errors.Email?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">Email is required</p>}
-                <input className='mt-6 text-indigo-600 border mx-auto border-indigo-600' type="password" placeholder="Password" {...register("Password", { required: true, min: 6 })} />
-                {errors.Password?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">Password is required</p>}
+                <input className='mt-6 text-indigo-600 border mx-auto border-indigo-600' type="password" placeholder="Password" {...register("Password", { required: true, min: 6, pattern: /(?=.*[A-Z])/ })} />
+                {errors.Password?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">Password is required and atleast one capital Letter and special carecter</p>}
                 <input className='mt-6 text-indigo-600 border mx-auto border-indigo-600' type="text" placeholder="PhotoURL" {...register("photoURL", { required: true })} />
                 {errors.photoURL?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">PhotoURL is required</p>}
 
