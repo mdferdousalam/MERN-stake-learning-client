@@ -67,8 +67,8 @@ const Header = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <FaToggleOn className='hover:text-white'></FaToggleOn>
-                        <FaToggleOff className='hover:text-white'></FaToggleOff>
+                        <FaToggleOn title='Light' className='hover:text-white'></FaToggleOn>
+                        <FaToggleOff title='Dark' className='hover:text-white'></FaToggleOff>
                     </li>
                 </ul>
             </nav>
