@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+import { FaToggleOn, FaToggleOff } from "react-icons/fa";
 
 const Header = () => {
 
@@ -9,14 +10,14 @@ const Header = () => {
 
     let activeClassName = "underline";
     return (
-        <div className='flex'>
+        <div className='flex justify-between bg-sky-300 py-7 px-5 text-indigo-600 text-xl font-medium'>
             <div>
                 <img src="../../assets/brand/apple-touch-icon.png" alt="" />
-                <NavLink to="/">Code Academy</NavLink>
+                <NavLink className='hover:text-white' to="/">Code Academy</NavLink>
             </div>
             <nav >
                 <ul className='flex' >
-                    <li className='mr-2'>
+                    <li className='mr-4 hover:text-white'>
                         <NavLink
                             to="/courses"
                             style={({ isActive }) =>
@@ -26,7 +27,7 @@ const Header = () => {
                             Courses
                         </NavLink>
                     </li>
-                    <li className='mr-2'>
+                    <li className='mr-4 hover:text-white'>
                         <NavLink
                             to="/faq"
                             className={({ isActive }) =>
@@ -36,7 +37,7 @@ const Header = () => {
                             FAQ
                         </NavLink>
                     </li>
-                    <li className='mr-2'>
+                    <li className='mr-4 hover:text-white'>
                         <NavLink to="/blog">
                             {({ isActive }) => (
                                 <span
@@ -49,17 +50,25 @@ const Header = () => {
                             )}
                         </NavLink>
                     </li>
-                    <li className='mr-2'>
-                        <NavLink to='/login'>
+                    <li className='mr-4 border-2 rounded-lg px-5  hover:text-white'>
+                        <NavLink to='/login' className={({ isActive }) =>
+                            isActive ? activeClassName : undefined
+                        }>
                             Login
 
                         </NavLink>
                     </li>
-                    <li className='mr-2'>
-                        <NavLink to='/signup'>
+                    <li className='mr-4  hover:bg-sky-300 text-white px-5 bg-violet-600 border rounded-lg border-indigo-600'>
+                        <NavLink to='/signup' className={({ isActive }) =>
+                            isActive ? activeClassName : undefined
+                        }>
                             Sign Up
 
                         </NavLink>
+                    </li>
+                    <li>
+                        <FaToggleOn className='hover:text-white'></FaToggleOn>
+                        <FaToggleOff className='hover:text-white'></FaToggleOff>
                     </li>
                 </ul>
             </nav>

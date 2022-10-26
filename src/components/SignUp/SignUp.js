@@ -1,10 +1,50 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthContext';
+
+
 
 const SignUp = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const { createUser, verifyEmail } = useContext(AuthContext)
+
+
+    const [success, setSuccess] = useState(false)
+
+    const userName = watch("Name")
+    const email = watch("Email");
+    const password = watch("Password")
+    const userPhotoURL = watch("photoURL")
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.form?.pathname || "/"
+
+
+    const onSubmit = () => {
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setSuccess(true)
+                navigate(from, { replace: true })
+
+                verifyEmail()
+                    .then(() => {
+                        alert('Successfully Done.Please chek email and verify')
+                    })
+
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+
+    }
     console.log(errors);
+
+
 
     return (
         <div>
@@ -20,6 +60,7 @@ const SignUp = () => {
                 {errors.photoURL?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">PhotoURL is required</p>}
 
                 <input className='mx-auto  border px-16 py-2 mt-6 bg-indigo-600 text-white rounded' type="submit" />
+                <p className='text-center'><small>Already have an account?<Link className='text-indigo-700 font-bold' to='/login'>Login</Link></small></p>
             </form>
         </div>
     );
