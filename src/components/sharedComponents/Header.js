@@ -10,7 +10,7 @@ const Header = () => {
 
     let activeClassName = "underline";
     return (
-        <div className='flex justify-between bg-sky-300 py-7 px-5 text-indigo-600 text-xl font-medium'>
+        <div className='flex justify-between sticky top-0 bg-sky-300 py-7 px-5 text-indigo-600 text-xl font-medium'>
             <div>
                 <img src="../../assets/brand/apple-touch-icon.png" alt="" />
                 <NavLink className='hover:text-white' to="/">Code Academy</NavLink>
@@ -58,7 +58,7 @@ const Header = () => {
 
                         </NavLink>
                     </li>
-                    <li className='mr-4  hover:bg-sky-300 text-white px-5 bg-violet-600 border rounded-lg border-indigo-600'>
+                    <li className='mr-4  hover:bg-sky-300 text-white px-5 bg-indigo-600 border rounded-lg border-indigo-600'>
                         <NavLink to='/signup' className={({ isActive }) =>
                             isActive ? activeClassName : undefined
                         }>

@@ -80,19 +80,19 @@ const Login = () => {
         <div>
             <h1 className='mt-6 mb-7 text-4xl font-medium text-center text-indigo-600 mx-auto '>Login</h1>
 
-            <button onClick={handleGoogleLogin} className='border border-indigo-600 flex px-7 py-2 text-xl rounded-lg text-indigo-600 font-medium mx-auto items-center'><FaGoogle className='mr-5' />Login with Google</button>
-            <button onClick={handleFacebookLogin} className='border border-indigo-600 flex px-5 mt-3 py-2 text-xl rounded-lg text-indigo-600 font-medium mx-auto items-center'><FaFacebook className='mr-4' />Login with Facebook</button>
+            <button onClick={handleGoogleLogin} className='border hover:bg-sky-300 hover:text-white border-indigo-600 flex px-7 py-2 text-xl rounded-lg text-indigo-600 font-medium mx-auto items-center'><FaGoogle className='mr-5' />Login with Google</button>
+            <button onClick={handleFacebookLogin} className='border hover:bg-sky-300 hover:text-white border-indigo-600 flex px-5 mt-3 py-2 text-xl rounded-lg text-indigo-600 font-medium mx-auto items-center'><FaFacebook className='mr-4' />Login with Facebook</button>
             <h5 className='mx-auto text-center text-indigo-600 mt-6 font-medium'>---------------------------------or----------------------------------------</h5>
 
             <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
 
-                <input className='mt-6 border mx-auto border-indigo-600' type="email" placeholder="Email" {...register("Email", { required: true })} />
+                <input className='mt-6 border  text-indigo-600 mx-auto border-indigo-600' type="email" placeholder="Email" {...register("Email", { required: true })} />
                 {errors.Email?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">Email is required</p>}
-                <input className='mt-6 mx-auto border border-indigo-600' type="undefined" placeholder="Password" {...register("Password", { required: true })} />
+                <input className='mt-6 mx-auto border text-indigo-600 border-indigo-600' type="password" placeholder="Password" {...register("Password", { required: true })} />
                 {errors.Password?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">password is required</p>}
-                <input className='mx-auto  border px-16 py-2 mt-6 bg-indigo-600 text-white rounded' type="submit" />
-                <Link onClick={handleForgetPassword}  ><p className='text-center'><small className='text-indigo-700 font-bold'>Forgot your password?</small></p></Link>
-                <p className='text-center'><small>Not registered yet?<Link className='text-indigo-700 font-bold' to='/signup'>Create an account</Link></small></p>
+                <input className='mx-auto hover:bg-sky-300 hover:text-white border px-16 py-2 mt-6 bg-indigo-600 text-white rounded' type="submit" />
+                <Link onClick={handleForgetPassword}  ><p className='text-center '><small className='text-indigo-700 font-bold hover:bg-sky-300 hover:text-white'>Forgot your password?</small></p></Link>
+                <p className='text-center'><small>Not registered yet?<Link className='text-indigo-700 hover:bg-sky-300 hover:text-white font-bold' to='/signup'>Create an account</Link></small></p>
             </form>
         </div>
     );
