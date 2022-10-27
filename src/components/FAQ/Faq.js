@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Faq = () => {
     return (
         <div className='text-indigo-700 p-7'>
@@ -55,9 +56,8 @@ const Faq = () => {
                 <h1 className='text-xl font-bold text-center mt-7 border rounded-lg bg-sky-300 hover:text-white'>Roadmap of Backend Technology</h1>
                 <img className='mt-7' src=" https://www.freecodecamp.org/news/content/images/2020/08/backend.png" alt="" />
             </div>
-            <div></div>
-            <div></div>
         </div>
+
     );
 };
 
