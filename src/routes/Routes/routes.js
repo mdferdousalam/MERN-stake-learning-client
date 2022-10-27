@@ -6,7 +6,9 @@ import Faq from "../../components/FAQ/Faq";
 import Home from "../../components/Home";
 import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
+import Profile from "../../components/UserProfile/Profile";
 import Main from "../../layout/Main";
+import PrivateRoute from "../privateRoutes/PrivateRoute";
 
 
 export const routes = createBrowserRouter([
@@ -38,6 +40,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
             }
         ]
 
