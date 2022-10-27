@@ -23,7 +23,7 @@ const Details = () => {
                 <p className='px-8 mb-4'>{details}</p>
                 <div className='flex justify-evenly mb-20 mt-20'>
                     <Pdf targetRef={ref} filename={name} options={options} >{({ toPdf }) => <button onClick={toPdf} className='mr-4  hover:bg-sky-300 text-white px-5 bg-indigo-600 border rounded-lg border-indigo-600'>Check Out</button>}</Pdf>
-                    <button className='mr-4  hover:bg-sky-300 text-white px-5 bg-indigo-600 border rounded-lg border-indigo-600'><Link to={`/details/${id}`}>Get Premium Access</Link></button>
+                    <button className='mr-4  hover:bg-sky-300 text-white px-5 bg-indigo-600 border rounded-lg border-indigo-600'><Link to={`/checkout/${id}`}>Get Premium Access</Link></button>
                 </div>
             </div>
         </div>

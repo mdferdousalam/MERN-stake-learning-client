@@ -7,6 +7,7 @@ import Faq from "../../components/FAQ/Faq";
 import Home from "../../components/Home";
 import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
+import CheckoutPremium from "../../components/UserProfile/CheckoutPremium";
 import Profile from "../../components/UserProfile/Profile";
 import Main from "../../layout/Main";
 import PrivateRoute from "../privateRoutes/PrivateRoute";
@@ -57,7 +58,10 @@ export const routes = createBrowserRouter([
                 path: '/course/details/:id',
                 element: <Details></Details>,
                 loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-mauve.vercel.app/subjects/${params.id}`)
-
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute><CheckoutPremium></CheckoutPremium></PrivateRoute>
             }
         ]
 
