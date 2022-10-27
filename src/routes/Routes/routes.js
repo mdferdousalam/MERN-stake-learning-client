@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../../components/Blog/Blog";
 import Courses from "../../components/Courses/Courses";
+import Details from "../../components/Courses/Details";
 import ErrorPage from "../../components/ErrorPage";
 import Faq from "../../components/FAQ/Faq";
 import Home from "../../components/Home";
@@ -19,7 +20,8 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('https://b610-lerning-platform-server-side-mauve.vercel.app/subjects')
             },
             {
                 path: '/courses',
@@ -45,6 +47,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+            {
+                path: '/details/:id',
+                element: <Details></Details>,
+                loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-mauve.vercel.app/subjects/${params.id}`)
+            },
+            {
+                path: '/course/details/:id',
+                element: <Details></Details>,
+                loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-mauve.vercel.app/subjects/${params.id}`)
+
             }
         ]
 

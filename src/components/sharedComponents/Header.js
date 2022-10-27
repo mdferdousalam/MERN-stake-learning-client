@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FaToggleOn, FaToggleOff, FaUser } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider/AuthContext';
 

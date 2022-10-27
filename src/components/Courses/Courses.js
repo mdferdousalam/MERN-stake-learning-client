@@ -6,12 +6,13 @@ const Courses = () => {
 
     const allSubject = useLoaderData()
 
-    const { index, id } = allSubject;
+
+    console.log(allSubject)
     return (
         <div className='flex justify-between'>
             <div className='flex flex-col'>
                 {
-                    allSubject.map(n => <Link to={`https://b610-lerning-platform-server-side-mauve.vercel.app/subjects/${id}`} className='p-4 text-indigo-900 text-xl' key={index}> {n.name}</Link>)
+                    allSubject.map(n => <Link to={`/course/details/${n.id}`} className='p-4 text-indigo-900 text-xl'> {n.name}</Link>)
                 }
             </div>
             <div>
