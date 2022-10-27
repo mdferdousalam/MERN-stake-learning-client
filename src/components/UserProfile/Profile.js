@@ -1,8 +1,10 @@
 import React, { useContext, useRef, useState } from 'react';
-import { Form } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthContext';
 
 const Profile = () => {
+    const { register, formState: { errors }, watch } = useForm();
     const { user } = useContext(AuthContext)
     const [name, setName] = useState(user.displayName)
     const photoURLRef = useRef(user.photoURL)
@@ -19,27 +21,22 @@ const Profile = () => {
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control readOnly type="email" defaultValue={user?.email} />
-                </Form.Group>
+            <h1>This is profile page</h1>
+            <form className='flex flex-col' onSubmit={handleSubmit}>
+                <input defaultValue={name} className='mt-6 text-indigo-600 border mx-auto border-indigo-600' type="text" placeholder="Enter Your Name" {...register("Name", { required: true })} />
 
-                <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Label>Your Name</Form.Label>
-                    <Form.Control onChange={handleNameChange} type="text" defaultValue={name} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Label>Photo URL</Form.Label>
-                    <Form.Control ref={photoURLRef} type="text" defaultValue={user?.photoURL} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <button variant="primary" type="submit">
-                    Submit
-                </button>
-            </Form>
+                <input className='mt-6 text-indigo-600 border mx-auto border-indigo-600' type="email" placeholder="Email" {...register("Email", { required: true })} />
+
+                <input className='mt-6 text-indigo-600 border mx-auto border-indigo-600' type="password" placeholder="Password" {...register("Password", { required: true, min: 6, pattern: /(?=.*[A-Z])/ })} />
+                {errors.Password?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">Password is required and atleast one capital Letter and special carecter</p>}
+                <input className='mt-6 text-indigo-600 border mx-auto border-indigo-600' type="text" placeholder="PhotoURL" {...register("photoURL", { required: true })} />
+                {errors.photoURL?.type === 'required' && <p className='text-center text-xl text-orange-500' role="alert">PhotoURL is required</p>}
+
+                <input className='mx-auto hover:bg-sky-300 hover:text-white border px-16 py-2 mt-6 mb-6 bg-indigo-600 text-white rounded' type="submit" />
+
+            </form>
+
+
         </div>
     );
 };

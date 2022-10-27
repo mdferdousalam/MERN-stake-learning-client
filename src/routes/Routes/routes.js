@@ -23,7 +23,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                loader: () => fetch('https://b610-lerning-platform-server-side-mauve.vercel.app/subjects')
             },
             {
                 path: '/faq',

@@ -60,14 +60,15 @@ const Header = () => {
                         </NavLink>
                     </li>
                     <li className='mr-4'>
-                        <Link to='/profile'>
+
+                        <NavLink to="/profile">
                             {
                                 user?.photoURL ?
                                     <img style={{ height: '30px' }} roundedCircle src={user?.photoURL} alt="" />
                                     :
                                     <FaUser></FaUser>
                             }
-                        </Link>
+                        </NavLink>
                     </li>
                     <li >
                         {
